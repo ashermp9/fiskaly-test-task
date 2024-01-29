@@ -30,10 +30,6 @@ docker-run:
 	@echo "Running the application in Docker..."
 	docker run --rm -p 8080:8080 -e CONFIG_PATH=/app/config.yaml -v $(PWD)/config/local/config.yaml:/app/config.yaml $(APP_NAME)
 
-
-To interact with the API, you can use the following `curl` commands:
-
-
 create-device:
 	curl -X POST http://localhost:8080/api/v0/create-device \
 		-H "Content-Type: application/json" \
@@ -60,3 +56,6 @@ sign:
         "deviceId": "test-device-1", \
         "data": "Sample data to be signed" \
     }'
+
+test:
+	go test ./...
